@@ -12,6 +12,9 @@ router.get("/", async (req,res) => {
 
 router.post("/list", async (req,res) => {
   //deal with inputs
+  databaseGetterSetter.getListOfListNames(function (data) {
+    console.log(data);
+  });
   var listName = req.body.listName;
   var item = {
     name: req.body.itemName || null,

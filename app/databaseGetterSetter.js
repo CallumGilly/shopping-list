@@ -37,6 +37,17 @@ exports.addToList = (item, myCallBack) => {
 
 exports.testDatabaseConnector = () => con.state;
 
+exports.getListOfListNames = (myCallBack) => {
+  var sqlStatement = "SELECT * FROM " + process.env.DB_NAME + ".INFORMATION_SCHEMA.TABLES WHERE TABLE_TYPE = 'BASE TABLE'";
+  if (con.state === 'disconnected') return console.error('Database is not connected');
+  con.query(sqlStatement, function (err, result) {
+    myCallBack({
+      success: true,
+      response: result
+    });
+  });
+};
+
 //this function returns, vir callbacks, the list of name stored in listName
 exports.getList = (listName, myCallBack) => {
   //constructs SQL statement
