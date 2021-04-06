@@ -6,7 +6,7 @@ router.get("/", async (req,res) => {
   databaseGetterSetter.listNames(function(data) {
     var listNames = data.response;
     //console.log(itemList);
-    res.render("home", {listNames})
+    res.render("home", {listNames});
   });
 });
 
@@ -27,7 +27,7 @@ router.post("/list", async (req,res) => {
       databaseGetterSetter.listNames(function(data) {
         var listNames = data.response;
         var message = "Fill in the boxes to add items to the list";
-        res.render("listDisplay", {itemList,listNames,message})
+        res.render("listDisplay", {itemList,listNames,message});
       });
     });
   } else {
@@ -38,7 +38,7 @@ router.post("/list", async (req,res) => {
       var itemList = data.response;
       databaseGetterSetter.listNames(function(data) {
         var listNames = data.response;
-        res.render("listDisplay", {itemList,listNames})
+        res.render("listDisplay", {itemList,listNames});
       });
     });
   }

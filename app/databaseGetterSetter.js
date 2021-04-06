@@ -17,7 +17,7 @@ exports.listNames = (myCallBack) => {
       success: true,
       response: ["first-list"]
   });
-}
+};
 
 exports.testDatabaseConnector = () => {
   //this will be used to test the conection

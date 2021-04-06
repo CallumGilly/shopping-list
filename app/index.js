@@ -13,7 +13,7 @@ const port = 3030;
 var app = express();
 
 //Tells app to use bodyParser
-app.use(bodyParser.urlencoded({extended: true}))
+app.use(bodyParser.urlencoded({extended: true}));
 
 // Register Handlebars view engine
 app.engine('hbs', hbs({
