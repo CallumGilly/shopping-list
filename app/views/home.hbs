@@ -1,0 +1,12 @@
+<p>Hello World, please select the list you wish to view:</p>
+<form method="post" action="/list" >
+  <label for="listName">List name:</label>
+  <!-- <input type="text" name="listName"></input> -->
+  <select name="listName" id="listName">
+    {{#each listNames}}
+      <option value="{{this}}">{{this}}</option>
+    {{/each}}
+  </select>
+
+  <input type="submit"></input>
+</form>

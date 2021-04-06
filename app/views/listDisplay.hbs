@@ -1,0 +1,55 @@
+<div class="row">
+  <div class="col-sm-4">
+    <form action="/list" method="post">
+      <div class="form-row">
+        <div class="col">
+          <label for="itemName">Item name:</label>
+          <input class="form-control" type="text" name="itemName" value="" required></input>
+        </div>
+        <div class="col">
+          <label for="itemPrice">Item price:</label>
+          <input class="form-control" type="number" name="itemPrice" value="" min="1" required></input>
+        </div>
+        <div class="col">
+          <label for="itemAmmount">Item Quantity:</label>
+          <input class="form-control" type="number" name="itemAmmount" value="" min="1" required></input>
+        </div>
+      </div>
+      <div class="form-row">
+        <div class="col">
+          <label for="listName">List name:</label>
+          <select name="listName" id="listName">
+            {{#each listNames}}
+              <option value="{{this}}">{{this}}</option>
+            {{/each}}
+          </select>
+        </div>
+        <div class="col">
+          <button type="submit" name="button" class="btn btn-primary">Submit</button>
+        </div>
+      </div>
+
+      {{#if message}}
+        <div class="jumbotron bg-info text-white">
+          <p>{{message}}</p>
+        </div>
+      {{/if}}
+    </form>
+  </div>
+  <div class="col-lg-8">
+    <table style="width:100%">
+      <tr>
+        <th>Name</th>
+        <th>Price</th>
+        <th>Quantity</th>
+      </tr>
+      {{#each itemList}}
+        <tr>
+          <td>{{this.name}}</td>
+          <td>{{this.price}}</td>
+          <td>{{this.quantity}}</td>
+        </tr>
+      {{/each}}
+    </table>
+  </div>
+</div>
