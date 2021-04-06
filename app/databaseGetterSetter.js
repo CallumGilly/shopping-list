@@ -19,10 +19,23 @@ exports.listNames = (myCallBack) => {
   });
 };
 
-exports.testDatabaseConnector = () => {
-  //this will be used to test the conection
-  return process.env.DB_HOST;
+exports.addToList = (item, myCallBack) => {
+  var sqlStatement = "INSERT INTO `" + item.list + "` (name, quantity, price) VALUES ('";
+  sqlStatement += item.name + "', '";
+  sqlStatement += item.ammount + "', '";
+  sqlStatement += item.price += "')";
+  if (con.state === 'disconnected') return console.error('Database is not connected');
+  con.query(sqlStatement, function (err, result) {
+    if (err) return console.error(err.message);
+    //Callsback (returns but later)
+    myCallBack({
+        success: true,
+        response: "1 record inserted"
+    });
+  });
 };
+
+exports.testDatabaseConnector = () => con.state;
 
 //this function returns, vir callbacks, the list of name stored in listName
 exports.getList = (listName, myCallBack) => {
