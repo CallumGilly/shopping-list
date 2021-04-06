@@ -39,8 +39,8 @@ CREATE TABLE `first-list` (
 --
 
 INSERT INTO `first-list` (`id`, `name`, `quantity`, `price`) VALUES
-(1, 'foobar', 4, '3.00'),
-(2, 'TestItem', 2, '2.99'),
+(1, 'TestItem0', 4, '3.00'),
+(2, 'TestItem1', 2, '2.99'),
 (3, 'TestItem2', 20, '2.50');
 
 --
